@@ -1,0 +1,76 @@
+.container
+    #blue-bar.mainbg
+    #gray-bar
+    h1#banner-title
+      em Contact Us
+    .row.contact-cols
+      .col-md-4
+        .thumbnail.contact-col
+          .text-center
+            i.fa.fa-info-circle.fa-5x.fa-blue
+          .caption
+            h3.text-center.caption-title Get in Touch!
+            h5.blue-text Grab Some Attention!
+            p
+              | Lorem ipsum dolor sit amet, perfecto intellegam duo et, ne nec erat consetetur. Cum no sale virtute incorrupte, mei facete dignissim ex, qui splendide instructior ei.
+              | Sit ut everti aliquip nostrud. Nonumy quaerendum sea ea.
+            p
+              | Quo debet nostrud intellegat ut, eos ad aeterno pericula, sea ei eruditi officiis iracundia
+      .col-md-4
+        .thumbnail.contact-col
+          .text-center
+            i.fa.fa-map-marker.fa-5x.fa-blue
+          .caption
+            h3.text-center.caption-title Details
+            p.text-center.addy
+              strong Company Name
+            p.text-center.addy
+              strong 1234 Somestreet Road
+            p.text-center.addy
+              strong City, ST  12345
+            ul.list-group.details-list
+              li.list-group-item.text-center
+                h4.list-group-item-heading.heading-blue Corporate Office
+                p.list-group-item-text
+                  abbr(title='Phone') P:
+                  |  555.555.5555
+                  br
+                  abbr(title='Hours') H:
+                  |  9 am - 5 pm EST
+                  br
+                  |                   Monday - Friday
+              li.list-group-item.text-center
+                h4.list-group-item-heading.heading-blue Factory Outlet Store
+                p.list-group-item-text
+                  abbr(title='Phone') P:
+                  |  555.555.5555
+                  br
+                  abbr(title='Hours') H:
+                  |  11 am - 7 pm EST
+                  br
+                  |               Tuesday - Saturday
+            .text-center.map-btn
+              a.btn.btn-default(target='_blank', href='#')
+                | Map It!
+      .col-md-4.contact-col
+        .thumbnail
+          .text-center
+            i.fa.fa-envelope.fa-5x.fa-blue
+          .caption
+            h3.text-center.caption-title Send us a Message
+            form(action='', method='')
+              .row
+                .col-sm-12
+                  .form-group
+                    label(for='contactName') Name
+                    input#contactName.form-control(type='text', name='', value='')
+                .col-sm-12
+                  .form-group
+                    label(for='email') Email
+                    input#email.form-control(type='text', name='', value='')
+              .row
+                .col-sm-12
+                  .form-group
+                    label(for='commentsText') Message
+                    textarea#message.form-control(style='resize:none', name='message', rows='5')
+              button.btn.btn-default(type='submit') Submit

@@ -1,0 +1,329 @@
+extends layout
+
+block content
+     
+    .col-sm-10.col-sm-offset-1.setting.mainWrapper.manage
+      .mainWrapper
+        .col-sm-4
+          section.box.widget.locations
+            .avatar
+              //- img.temImage(src='/images/screenshots/'+userId+progectName+'.png' class="projectImage")
+              iframe(src="/progect/"+id +"/" +progectName class="manage-frame" style="margin: 0 auto; transform-origin: top left;" allowtransparency="true" width="100%" height="400px" frameborder="0" scrolling="no" align="center")
+           
+            .details
+              h2 #{progectName}
+              p #{email}
+              a.btn.btn-primary.btn-block.btn-large(href="/scanner/"+userId +"/" +progectName , title='',  target="_blank") Edit
+          section.box.widget.calendar
+            .elegant-calencar
+              p   campaign start - #{uploadTime}
+              p#reset reset
+              #header.clearfix
+                .pre-button.col-sm-1.no-padding <
+                .head-info.col-sm-10.no-padding 
+                  .head-day
+                  .head-month
+                .next-button.col-sm-1.no-padding >
+              table#calendar
+                thead
+                  tr
+                    th Sun
+                    th Mon
+                    th Tue
+                    th Wed
+                    th Thu
+                    th Fri
+                    th Sat
+                tbody
+                  tr
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                  tr
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                  tr
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                  tr
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                  tr
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                  tr
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+
+        .col-sm-8
+          nav.box.nav
+            ul
+              li.startM1
+                a
+                  span.icon-home
+                  br
+                  span.title Main
+              li.startM2
+                a
+                  span.icon-cube
+                  br
+                  span.title Element
+              li.startM3
+                a
+                  span.icon-bubble
+                  br
+                  span.title Message
+              //- li.startM4
+              //-   a
+              //-     span.icon-music
+              //-     br
+              //-     span.title Music
+              //- li.startM5
+              //-   a
+              //-     span.icon-search
+              //-     br
+              //-     span.title Search
+              li.startM6
+                a
+                  span.icon-location
+                  br
+                  span.title Users
+              li.startM7
+                a
+                  span.icon-cog
+                  br
+                  span.title Settings
+          .inner_container
+
+            .manage1
+              .col-sm-3
+                input(type='hidden' class='progectManage' val='#{progectManage}') 
+                section.box.widget.video
+                  img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/6035/scrtpxls_video.png', alt='')
+                section.box.widget.todayUsers
+                  header.header
+                    .temp
+                      | #{today} 
+                      span.icon-brightness-half
+                    span.icon-partlycloudy
+                  article
+                    h2 Today Users
+                section.box.widget.totalUsers
+                  header.header
+                    .temp
+                      | #{total} 
+                      span.icon-brightness-half
+                    span.icon-partlycloudy
+                  article
+                    h2 Total Users
+              .col-sm-9
+                div(id='map')
+
+            .manage2
+                .wrapperTable
+                     each val, index in elements
+                       li.templateLi
+                          div.col-sm-4.row.listProgect
+                            div.text-center.col-sm-12progectName= val.name
+                            div.col-sm-12
+                              div(class="templatesWebsite")
+                              div(class="iframe-wrap manage")
+                                iframe(src="/progect/element/"+val._id +"/" +val.name class="webform-frame" style="margin: 0 auto; transform-origin: top left;" allowtransparency="true" width="100%" height="120px" frameborder="0" scrolling="no" align="center")
+                            div.col-sm-12.ratingTemplates
+                              div.col-sm-6
+                                p.templatesPrice Price : Free
+                              div.col-sm-6.pull-right
+                                 a(class="watch" name="watch")<i class="fa fa-eye"></i>
+                                   span.eyesValue(val="3") 3
+                                 a(class="single-stat comments")<i class="fa fa-heart-o"></i></i> 3
+                            div.col-sm-12.temlatesButtons               
+                                 a.btn.btn-primary.btn-sm.fixed-bottom.box-shadow--2dp.col-sm-6(href="/scanner/edit/#{userId}").progectLink= "Edit"
+                                 a.btn.btn-success.btn-sm.fixed-bottom.box-shadow--4dp.col-sm-6.sec(href="/progect/element/"+val._id +"/" +val.name ).progectLinkView= "View"
+
+            .manage3
+                if (leeds)
+                  .wrapperTable
+                    .tableManage
+                      .rowManage.header.blue
+                            .cellManage 
+                              | Cuntry 
+                            .cellManage 
+                              | City
+                            .cellManage
+                              | Date
+                            .cellManage
+                              | Flag 
+                          each val, index in leeds
+                            .rowManage
+                              .cellManage
+                                =val.text1
+                              .cellManage
+                                =val.email1
+                              .cellManage
+                                 
+                              .cellManage
+                                 span(class="flag-icon")
+               
+                  h1 To add leeds
+                  p.description you can add this toturial
+
+
+            .manage6
+                .wrapperTable
+                  .tableManage
+                    .rowManage.header
+                      .cellManage
+                        | Cuntry
+                      .cellManage
+                        | City
+                      .cellManage
+                        | Date
+                      .cellManage
+                        | Ip
+                      .cellManage
+                        | Flag
+                    each val, index in progectManage
+                      .rowManage
+                        .cellManage.mangeCountry
+                           =val.userCountry
+                        .cellManage
+                           =val.userCity
+                        .cellManage.mangeDate
+                           =val.userDate
+                        .cellManage
+                           =val.userIp
+                        .cellManage
+                           span(class="flag-icon")
+                    
+               
+            .manage7
+              .col-sm-3
+                input(type='hidden' class='progectManage' val='#{progectManage}') 
+                section.box.widget.video
+                  img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/6035/scrtpxls_video.png', alt='')
+                section.box.widget.todayUsers
+                  header.header
+                    .temp
+                      | #{today} 
+                      span.icon-brightness-half
+                    span.icon-partlycloudy
+                  article
+                    h2 campaign start
+                section.box.widget.totalUsers
+                  header.header
+                    .tempTotal
+                      | #{total} 
+                      span.icon-brightness-half
+                    span.icon-partlycloudy
+                  article
+                    h2 Total Users
+              .col-sm-9
+                div(id='map')
+
+
+            
+      
+      script(type='text/javascript').
+       jQuery(document).ready(function($) {      
+
+           var manage =!{JSON.stringify(progectManage)}
+          
+
+           var count = $('.totalUsers').find('.tempTotal').text();
+
+          
+           //config googlemap //1
+           var map = new GMaps({
+              el: '#map',
+              zoom:2,
+              center: {lat: 31.5, lng: 34.75},
+           });
+
+           for (i = 0; i < count; i++) { 
+                 var userCuntry = manage[i].userCountry;
+                 var userCity = manage[i].userCity;
+                 var userDate = manage[i].userDate;
+                 var userLat = manage[i].userPositionLat;
+                 var userLong = manage[i].userPositionLong;
+                 
+                  map.addMarker({
+                    lat: userLat,
+                    lng: userLong,
+                    title: userCuntry,
+                    click: function(e) {
+                      alert('You clicked in this marker');
+                    }
+                  });
+                      
+            }
+            
+           
+            //calendar
+            var thisMonth = moment().format();
+            
+
+            //manage dates by moment library
+            $(".mangeDate").each(function(i, el) {
+                var date = $(this).text();
+                var thisMonthValid = moment().format();
+                if (thisMonthValid === thisMonth){
+                   var day = moment(date).format("D");
+                   var time = moment(date).format("h:mm:ss");   
+                   
+                }
+
+                $('#calendar').mousemove(function(){
+                  $('td:contains("'+day+'")').css("background", "#1C1515");
+                  $('td:contains("'+day+'")').attr('data-hint', time);
+                });
+                
+            });
+
+           
+
+           //flage for users tables //6
+           var mangeCountry = $('.mangeCountry').text();
+           var resCountry = mangeCountry.substring(0, 2).toLowerCase();
+           $('.flag-icon').addClass('flag-icon-' + resCountry);  
+
+           //manage dates by moment library
+           $(".mangeDate").each(function(i, el) {
+              var date = $(this).text();
+              var now = moment(date).calendar();
+              $(this).text(now);
+           });        
+       });
+    //- google maps
+    script(src='http://maps.google.com/maps/api/js?sensor=true')
+    script(src='/bower/gmaps/gmaps.js')
+
+
