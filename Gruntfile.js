@@ -16,7 +16,7 @@ module.exports = function(grunt) {
         dest: 'public/stylesheets/main.css',
       },
       bowerjs: {
-        src: ['public/bower/jquery/dist/jquery.min.js', 'public/bower/bootstrap/dist/js/bootstrap.min.js' ,  'public/bower/bootstrap-toggle/js/bootstrap-toggle.min.js' , 'public/bower/slick.js/slick/slick.js' , 'public/bower/toastr/toastr.js' , 'public/bower/sweetalert/dist/sweetalert.min.js' , 'public/bower/moment/min/moment-with-locales.min.js' ],
+        src: ['public/bower/jquery/dist/jquery.min.js','public/bower/bootstrap-validator/dist/validator.js'  , 'public/bower/bootstrap/dist/js/bootstrap.min.js' ,  'public/bower/bootstrap-toggle/js/bootstrap-toggle.min.js' , 'public/bower/slick.js/slick/slick.js' , 'public/bower/toastr/toastr.js' , 'public/bower/sweetalert/dist/sweetalert.min.js' , 'public/bower/moment/min/moment-with-locales.min.js' ],
         dest: 'public/javascripts/bower.js',
       },
       bowercss: {

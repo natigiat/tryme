@@ -19,7 +19,10 @@
             li.list-group-item.text-right
               span.pull-left
                 strong Package
-              |  #{rolename}
+              div.pull-right
+                  |  #{rolename} 
+                  if (rolename != "Full")
+                      a(href='/account/progect#update' class='label label-info') Update
             li.list-group-item.text-right
               span.pull-left
                 strong Real name
@@ -29,16 +32,39 @@
               | Website 
               i.fa.fa-link.fa-1x
             .panel-body   
-              button.btn.btn-success-tem.col-sm-12.addW.colorWhite(type='button') Add Website
-                  
+              button.btn.btn-success-tem.col-sm-12.addW.colorWhite(type='button', data-toggle='modal', data-target='#myModal')
+                | Add Website
+              // Modal
+              #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+                .modal-dialog(role='document')
+                  .modal-content
+                    .modal-header
+                      button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') ×
+                      h4#myModalLabel.modal-title Modal title
+                    .modal-body
+                       .row
+                        .col-md-12.col-sm-12.col-xs-12
+                              form.form-inline(role="form" , data-toggle="validator")
+                                .form-group
+                                  label.sr-only(for='exampleInputEmail2') Site Name
+                                  input#sitename.form-control(type='text', name='siteName', placeholder='Site name...')
+                                .form-group
+                                  label.sr-only(for='exampleInputPassword2') Site Url
+                                  input#siteurl.form-control(type="url", placeholder='http://example.com')
+                                button.btn.btn-info.addSite(type='submit', title='') Add site
+             
+
+
+          
           ul.list-group
             li.list-group-item.text-muted
               | Activity 
               i.fa.fa-dashboard.fa-1x
             li.list-group-item.text-right
               span.pull-left
-                strong Shares
-              |  125
+                strong Sites
+                  span.sitesNumber 
             li.list-group-item.text-right
               span.pull-left
                 strong Likes
@@ -59,19 +85,21 @@
               a(href='#home', data-toggle='tab') Home
             li
               a(href='#messages', data-toggle='tab') Messages
-            li
-              a(href='#settings', data-toggle='tab') Settings
+            if (role != "3") 
+              li
+                a(href='#update', data-toggle='tab') Update
           .tab-content
             #home.tab-pane.active
               .table-responsive
                 table.table.table-hover
                   thead
                     tr
-                      th #
+                      th Site Added
                       th Website Name
                       th Website Url
-                      th Active
+                      th Visit
                       th Download 
+                      th 
                   tbody#items
 
                     
@@ -86,81 +114,103 @@
               ul.list-group
                 li.list-group-item.text-muted Inbox
                 li.list-group-item.text-right
-                  a.pull-left(href='#') Here is your a link to the latest summary report from the..
-                  |  2.13.2014
+                  a.pull-left(href='#') Welcome to be responsive
+                  |  2.13.2016
                 li.list-group-item.text-right
-                  a.pull-left(href='#') Hi Joe, There has been a request on your account since that was..
-                  |  2.11.2014
-                li.list-group-item.text-right
-                  a.pull-left(href='#') Nullam sapien massaortor. A lobortis vitae, condimentum justo...
-                  |  2.11.2014
-                li.list-group-item.text-right
-                  a.pull-left(href='#') Thllam sapien massaortor. A lobortis vitae, condimentum justo...
-                  |  2.11.2014
-                li.list-group-item.text-right
-                  a.pull-left(href='#') Wesm sapien massaortor. A lobortis vitae, condimentum justo...
-                  |  2.11.2014
-                li.list-group-item.text-right
-                  a.pull-left(href='#') For therepien massaortor. A lobortis vitae, condimentum justo...
-                  |  2.11.2014
-                li.list-group-item.text-right
-                  a.pull-left(href='#') Also we, havesapien massaortor. A lobortis vitae, condimentum justo...
-                  |  2.11.2014
-                li.list-group-item.text-right
-                  a.pull-left(href='#') Swedish chef is assaortor. A lobortis vitae, condimentum justo...
-                  |  2.11.2014
+                  a.pull-left(href='#') Hi #{name} , Start template your website..
+                  |  2.13.2016
+         
             // /tab-pane
-            #settings.tab-pane
-              hr
-              form#registrationForm.form(action='##', method='post')
-                .form-group
-                  .col-xs-6
-                    label(for='first_name')
-                      h4 First name
-                    input#first_name.form-control(type='text', name='first_name', placeholder='first name', title='enter your first name if any.')
-                .form-group
-                  .col-xs-6
-                    label(for='last_name')
-                      h4 Last name
-                    input#last_name.form-control(type='text', name='last_name', placeholder='last name', title='enter your last name if any.')
-                .form-group
-                  .col-xs-6
-                    label(for='phone')
-                      h4 Phone
-                    input#phone.form-control(type='text', name='phone', placeholder='enter phone', title='enter your phone number if any.')
-                .form-group
-                  .col-xs-6
-                    label(for='mobile')
-                      h4 Mobile
-                    input#mobile.form-control(type='text', name='mobile', placeholder='enter mobile number', title='enter your mobile number if any.')
-                .form-group
-                  .col-xs-6
-                    label(for='email')
-                      h4 Email
-                    input#email.form-control(type='email', name='email', placeholder='you@email.com', title='enter your email.')
-                .form-group
-                  .col-xs-6
-                    label(for='email')
-                      h4 Location
-                    input#location.form-control(type='email', placeholder='somewhere', title='enter a location')
-                .form-group
-                  .col-xs-6
-                    label(for='password')
-                      h4 Password
-                    input#password.form-control(type='password', name='password', placeholder='password', title='enter your password.')
-                .form-group
-                  .col-xs-6
-                    label(for='password2')
-                      h4 Verify
-                    input#password2.form-control(type='password', name='password2', placeholder='password2', title='enter your password2.')
-                .form-group
-                  .col-xs-12
-                    br
-                    button.btn.btn-lg.btn-success(type='submit')
-                      i.glyphicon.glyphicon-ok-sign
-                      |  Save
-                    button.btn.btn-lg(type='reset')
-                      i.glyphicon.glyphicon-repeat
-                      |  Reset
+            if (role != "3") 
+              #update.tab-pane
+                br
+                if (role == "1") 
+                  .col-xs-12.col-sm-6.col-md-6.col-lg-6.update
+                    .db-wrapper.db-wrapper-recommended
+                      .db-pricing-seven
+                        span.col-sm-6.col-sm-offset-3.recomended recommended
+                        ul
+                          li.price.price2
+                            i.glyphicon.glyphicon-link
+                            |  TEAM 
+                            br
+                            h4
+                              small
+                                span.colorWhite $50/mo*
+                          li Dashboard
+                          li support
+                          li Download files 
+                          li
+                            .label.label-default 5
+                            |  websites
+                        .pricing-footer
+                          em.text-muted secure payment through paypal 
+                          br
+                          a.btn.btn-success-tem.btn-success-spaces
+                             form(action='https://www.sandbox.paypal.com/cgi-bin/webscr', method='post', target='_top')
+                              input(type='hidden', name='cmd', value='_s-xclick')
+                              input(type='hidden', name='hosted_button_id', value='58A2SF46GJBZY')
+                              input(type='image', src='https://www.sandbox.paypal.com/he_IL/IL/i/btn/btn_subscribeCC_LG.gif', border='0', name='submit', alt='PayPal - הדרך הקלה והבטוחה לשלם באינטרנט!')
+                              img(alt='', border='0', src='https://www.sandbox.paypal.com/he_IL/i/scr/pixel.gif', width='1', height='1')
+                          br
+                          em.text-muted You don't need to have account
+                  .col-xs-12.col-sm-6.col-md-6.col-lg-6.update
+                    .db-wrapper
+                      .db-pricing-seven
+                        ul
+                          li.price.price3
+                            i.glyphicon.glyphicon-globe
+                            | unlimited
+                            br
+                            h4
+                              small
+                                span.colorWhite $200/mo*
+                          li Dashboard
+                          li support
+                          li Download files 
+                          li unlimited
+                        .pricing-footer
+                          em.text-muted secure payment through paypal 
+                          br
+                          a.btn.btn-success-tem.btn-success-spaces
+                            form(action='https://www.sandbox.paypal.com/cgi-bin/webscr', method='post', target='_top')
+                              input(type='hidden', name='cmd', value='_s-xclick')
+                              input(type='hidden', name='hosted_button_id', value='C6GHLW4HQ4PEU')
+                              input(type='image', src='https://www.sandbox.paypal.com/he_IL/IL/i/btn/btn_subscribeCC_LG.gif', border='0', name='submit', alt='PayPal - הדרך הקלה והבטוחה לשלם באינטרנט!')
+                              img(alt='', border='0', src='https://www.sandbox.paypal.com/he_IL/i/scr/pixel.gif', width='1', height='1')
+                          br
+                          em.text-muted You don't need to have account
+                          
+
+                else if (role == "2") 
+                     .col-xs-12.col-sm-12.col-md-12.col-lg-12.update
+                      .db-wrapper
+                        .db-pricing-seven
+                          ul
+                            li.price.price3
+                              i.glyphicon.glyphicon-globe
+                              | unlimited
+                              br
+                              h4
+                                small
+                                  span.colorWhite $200/mo*
+                            li Dashboard
+                            li support
+                            li Download files 
+                            li unlimited
+                          .pricing-footer
+                            em.text-muted secure payment through paypal 
+                            br
+                            a.btn.btn-success-tem.btn-success-spaces
+                              form(action='https://www.sandbox.paypal.com/cgi-bin/webscr', method='post', target='_top')
+                                input(type='hidden', name='cmd', value='_s-xclick')
+                                input(type='hidden', name='hosted_button_id', value='C6GHLW4HQ4PEU')
+                                input(type='image', src='https://www.sandbox.paypal.com/he_IL/IL/i/btn/btn_subscribeCC_LG.gif', border='0', name='submit', alt='PayPal - הדרך הקלה והבטוחה לשלם באינטרנט!')
+                                img(alt='', border='0', src='https://www.sandbox.paypal.com/he_IL/i/scr/pixel.gif', width='1', height='1')
+                            br
+                            em.text-muted You don't need to have account           
+
+
+             
 
         input(type="hidden" class="infoMain" value="#{id}")

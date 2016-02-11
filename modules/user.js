@@ -44,4 +44,7 @@ module.exports.selectUser = function(id, callback){
 	User.findOne(query , callback);
 }
 
-
+module.exports.updateUserRole = function(id,role , callback){
+	var query = {_id : id};
+	User.update(query ,{ role: role } , callback);
+}

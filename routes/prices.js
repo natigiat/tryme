@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var sendgrid  = require('sendgrid')('nati','gohartkjh12!@ZX');
+var gravatar = require('gravatar');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -13,9 +14,10 @@ router.get('/', function(req, res, next) {
   //   if (err) { return console.error(err); }
   //   console.log(json);
   // });
-
+  var user =  req.user;
 	if(req.isAuthenticated()){
-		res.render('prices', {title: 'Prices' , name: req.user.name });
+    var url = gravatar.url(user.email, {s: '200', r: 'pg', d: '404'});
+		res.render('prices', {title: 'Prices' , name: req.user.name, image: url });
 	}else{
 		req.toastr.info('start your first progect', "Welcome to Landing Chat");
     	res.locals.toasts = req.toastr.render()

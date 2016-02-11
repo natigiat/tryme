@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var sendgrid  = require('sendgrid')('nati','gohartkjh12!@ZX');
+var gravatar = require('gravatar');
+
 
 
 
@@ -20,9 +22,10 @@ router.get('/', function(req, res, next) {
   // 
   
 
-
 	if(req.isAuthenticated()){
-		res.render('index', {title: 'Members' , name: req.user.name ,image: url});
+    var user =  req.user;
+    var url = gravatar.url(user.email, {s: '200', r: 'pg', d: '404'});
+		res.render('index', {title: 'Members' , name: req.user.name , image: url});
 	}else{
 		req.toastr.info('start your first progect', "Welcome to Landing Chat");
     	res.locals.toasts = req.toastr.render()

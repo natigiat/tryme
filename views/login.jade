@@ -2,13 +2,19 @@ extends layout
 
 block content
    .container.mainWrapper
-     h1 Login
-     p Please Login using the form below
-     form(method='post' , action='/users/login')
-          .form-group
-              label Email
-              input.form-control(type='email' , name='username' , placeholder='Enter email')
-          .form-group
-            label Password
-            input.form-control(name='password' , type='password'  ,placeholder='Enter password...')
-          button.btn.btn-default(type='submit' , value='Login') Login
+     //- h2.form-signin-heading Please sign in
+     //- form(method='post' , action='/users/login')
+     //-      .form-group
+     //-          input.form-control(type='email' , name='username' , placeholder='Enter email')
+     //-      .form-group
+     //-        input.form-control(name='password' , type='password'  ,placeholder='Enter password...')
+     //-      button.btn.btn-default(type='submit' , value='Login') Login
+
+     form.form-signin.col-sm-6.col-sm-offset-3(method='post' , action='/users/login')
+        h2.form-signin-heading Please sign in
+        input.form-control(type='email' , name='username' , placeholder='Enter email')
+        input.form-control(name='password' , type='password'  ,placeholder='Enter password...')
+        label.checkbox.rememberMe
+          input(value='remember-me', type='checkbox')
+          |  Remember me
+        button.btn.btn-lg.btn-primary.btn-block(type='submit' , value='Login') Sign in

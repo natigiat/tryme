@@ -23,5 +23,23 @@ module.exports.getAllSite = function(id , callback){
 	Site.find(query , callback);
 }
 
+module.exports.countUserWebsite = function(id , callback){
+	var query = {userId : id};
+	Site.count(query , callback);
+}
+
+module.exports.removeWebsite = function(userId , url , callback){
+	var query = {userId : id,  url:url};
+	Site.remove(query, callback);
+
+}
+
+module.exports.getSiteByUserIdAndSiteName = function(id , sitename , callback){
+	
+	var query = {userId : id,  name:sitename};
+	Site.find(query , callback).limit(1);
+
+}
+
 
 
